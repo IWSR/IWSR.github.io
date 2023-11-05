@@ -8,26 +8,16 @@ const { Header, Content, Footer } = Layout;
 const App: React.FC = () => {
   return (
     <Layout>
-      <Header
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 1,
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-      </Header>
       <Content className="site-layout" style={{
-        padding: '0 50px',
+        padding: '50px 50px',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'flex-start',
+        width: '100%',
+        minHeight: '100vh'
       }}>
         <Form />
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
     </Layout>
   );
 };

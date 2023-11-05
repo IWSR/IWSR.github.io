@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const Units: React.FC = () => {
 
   return (
-    <div>Units</div>
+    <h3>Units</h3>
   );
 };
 

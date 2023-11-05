@@ -1,63 +1,108 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Row, Col, Form, Input, Button } from "antd";
-const { TextArea } = Input;
+
+import PreviewMarkDown from "../components/PreviewMarkDown";
 
 const ArmyRules: React.FC = () => {
   return (
-    <div>
-      <div>ArmyRules</div>
-      <Row gutter={24}>
-        <Col span={8}>
-          <Form.Item
-            label="descriptionCN"
-            rules={[
-              {
-                required: true,
-                message: "Input something!",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-        </Col>
-        <Col span={8}>
-          <Form.Item
-            label="descriptionEN"
-            rules={[
-              {
-                required: true,
-                message: "Input something!",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-        </Col>
-      </Row>
-      <Form.Item>
-        <div>ArmyRule</div>
-        <Row gutter={24}>
-          <Col span={8}>
-            <Form.Item label="labelEN">
-              <Input />
-            </Form.Item>
-          </Col>
-          <Col span={8}>
-            <Form.Item label="labelCN">
-              <Input />
-            </Form.Item>
-          </Col>
-        </Row>
+    <Form.Item name="ArmyRules">
+      <>
+        <h3>军队规则</h3>
+        <Form.Item
+          label="背景CN"
+          name={["ArmyRules", "descriptionCN"]}
+          rules={[
+            {
+              required: true,
+              message: "Input something!",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-        <Form.Item label="descriptionCN">
-          <TextArea />
+        <Form.Item
+          label="背景EN"
+          name={["ArmyRules", "descriptionEN"]}
+          rules={[
+            {
+              required: true,
+              message: "Input something!",
+            },
+          ]}
+        >
+          <Input />
         </Form.Item>
-        <Form.Item label="descriptionEN">
-          <TextArea />
-        </Form.Item>
-      </Form.Item>
-    </div>
+
+        <h3>rules</h3>
+
+        <Form.List name={["ArmyRules", "rules"]}>
+          {(fields, { add }) => {
+            return (
+              <>
+                {fields.map(({ name, key }, index) => {
+                  return (
+                    <Form.Item key={key}>
+                      <h3>规则-{index}</h3>
+                      <Row gutter={24}>
+                        <Col span={8}>
+                          <Form.Item
+                            label="labelEN"
+                            name={[name, "labelEN"]}
+                            rules={[
+                              {
+                                required: true,
+                                message: "Input something!",
+                              },
+                            ]}
+                          >
+                            <Input />
+                          </Form.Item>
+                        </Col>
+                        <Col span={8}>
+                          <Form.Item
+                            label="labelCN"
+                            name={[name, "labelCN"]}
+                            rules={[
+                              {
+                                required: true,
+                                message: "Input something!",
+                              },
+                            ]}
+                          >
+                            <Input />
+                          </Form.Item>
+                        </Col>
+                      </Row>
+
+                      <PreviewMarkDown
+                        name={[name, "descriptionCN"]}
+                        label="descriptionCN"
+                      />
+
+                      <PreviewMarkDown
+                        name={[name, "descriptionEN"]}
+                        label="descriptionEN"
+                      />
+                    </Form.Item>
+                  );
+                })}
+                <Form.Item>
+                  <Button
+                    type="dashed"
+                    onClick={() => add()}
+                    style={{ width: "60%" }}
+                  >
+                    增加规则
+                  </Button>
+                </Form.Item>
+              </>
+            );
+          }}
+        </Form.List>
+      </>
+    </Form.Item>
   );
 };
 
