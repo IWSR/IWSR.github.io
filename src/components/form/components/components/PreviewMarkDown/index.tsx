@@ -6,9 +6,10 @@ const { TextArea } = Input;
 interface Props extends React.PropsWithChildren {
   label: string;
   name: (string | number)[];
+  required?: boolean
 }
 
-const PreviewMarkDown: React.FC<Props> = ({ label, name }) => {
+const PreviewMarkDown: React.FC<Props> = ({ label, name, required = true }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [content, setContent] = useState('');
 
@@ -29,12 +30,12 @@ const PreviewMarkDown: React.FC<Props> = ({ label, name }) => {
       <Form.Item
         label={label}
         name={name}
-        rules={[
+        rules={required ? [
           {
             required: true,
             message: "Input something!",
           },
-        ]}
+        ] : []}
       >
         <div>
           <TextArea onChange={(e) => {

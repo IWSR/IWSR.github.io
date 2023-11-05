@@ -1,8 +1,6 @@
 import React from "react";
-
 import { Row, Col, Form, Input, Tabs, Button } from "antd";
 import type { TabsProps } from "antd";
-const { TextArea } = Input;
 import PreviewMarkDown from "../components/PreviewMarkDown";
 
 const getItems = (name: number): TabsProps["items"] => [
