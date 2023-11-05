@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Form, Button } from "antd";
+import { Tabs, Form, Button, Collapse } from "antd";
 import type { TabsProps } from "antd";
 import Unit from "./components/unit";
 
@@ -12,9 +12,15 @@ const getItems = (name: string): TabsProps["items"] => [
         {(fields, { add }) => {
           return (
             <>
-              {fields.map(({ name, key }, index) => {
-                return <Unit key={key} name={name} index={index} />;
-              })}
+              <Collapse>
+                {fields.map(({ name, key }, index) => {
+                  return (
+                    <Collapse.Panel header={`unit ${index}`} key={index}>
+                      <Unit key={key} name={name} index={index} />;
+                    </Collapse.Panel>
+                  );
+                })}
+              </Collapse>
               <Form.Item>
                 <Button
                   type="dashed"
@@ -38,9 +44,79 @@ const getItems = (name: string): TabsProps["items"] => [
         {(fields, { add }) => {
           return (
             <>
-              {fields.map(({ name, key }, index) => {
-                return <>123</>;
-              })}
+              <Collapse>
+                {fields.map(({ name, key }, index) => {
+                  return (
+                    <Collapse.Panel header={`unit ${index}`} key={index}>
+                      <Unit key={key} name={name} index={index} />;
+                    </Collapse.Panel>
+                  );
+                })}
+              </Collapse>
+              <Form.Item>
+                <Button
+                  type="dashed"
+                  onClick={() => add()}
+                  style={{ width: "60%" }}
+                >
+                  增加单位
+                </Button>
+              </Form.Item>
+            </>
+          );
+        }}
+      </Form.List>
+    ),
+  },
+  {
+    key: "3",
+    label: "DEDICATED TRANSPORT",
+    children: (
+      <Form.List name={[name, "DEDICATED TRANSPORT"]}>
+        {(fields, { add }) => {
+          return (
+            <>
+              <Collapse>
+                {fields.map(({ name, key }, index) => {
+                  return (
+                    <Collapse.Panel header={`unit ${index}`} key={index}>
+                      <Unit key={key} name={name} index={index} />;
+                    </Collapse.Panel>
+                  );
+                })}
+              </Collapse>
+              <Form.Item>
+                <Button
+                  type="dashed"
+                  onClick={() => add()}
+                  style={{ width: "60%" }}
+                >
+                  增加单位
+                </Button>
+              </Form.Item>
+            </>
+          );
+        }}
+      </Form.List>
+    ),
+  },
+  {
+    key: "4",
+    label: "OTHER DATASHEETS",
+    children: (
+      <Form.List name={[name, "OTHER DATASHEETS"]}>
+        {(fields, { add }) => {
+          return (
+            <>
+              <Collapse>
+                {fields.map(({ name, key }, index) => {
+                  return (
+                    <Collapse.Panel header={`unit ${index}`} key={index}>
+                      <Unit key={key} name={name} index={index} />;
+                    </Collapse.Panel>
+                  );
+                })}
+              </Collapse>
               <Form.Item>
                 <Button
                   type="dashed"
@@ -62,10 +138,7 @@ const Units: React.FC = () => {
   return (
     <Form.Item name="units">
       <h3>Units</h3>
-      <Tabs
-        defaultActiveKey="1"
-        items={getItems('units')}
-      />
+      <Tabs defaultActiveKey="1" items={getItems("units")} />
     </Form.Item>
   );
 };
