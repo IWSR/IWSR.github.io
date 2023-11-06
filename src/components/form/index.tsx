@@ -37,6 +37,13 @@ const items: TabsProps['items'] = [
 
 const onFinish = (values: any) => {
   console.log('Success:', values);
+  const jsonString = JSON.stringify(values);
+  const blob = new Blob([jsonString], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `${values.FactionCN}-${values.version}.json`; // 设置下载文件的名称
+  a.click();
+  URL.revokeObjectURL(a.href);
 };
 
 const FormContext = React.createContext<null | FormInstance<any>>(null);

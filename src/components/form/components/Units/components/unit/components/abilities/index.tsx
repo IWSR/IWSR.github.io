@@ -13,7 +13,7 @@ const CORE: React.FC<Props> = ({ name }) => {
         return (
           <>
             <h3>CORE</h3>
-            {fields.map(({ name, key }, index) => {
+            {fields.map(({ name, key }) => {
               return (
                 <Row gutter={24} key={key}>
                   <Col span={8}>
@@ -75,7 +75,7 @@ const Faction: React.FC<Props> = ({ name }) => {
         return (
           <>
             <h3>Faction</h3>
-            {fields.map(({ name, key }, index) => {
+            {fields.map(({ name, key }) => {
               return (
                 <Row gutter={24} key={key}>
                   <Col span={8}>

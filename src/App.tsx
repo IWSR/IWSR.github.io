@@ -3,7 +3,7 @@ import './index.css';
 import { Layout } from 'antd';
 import Form from './components/form';
 
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 
 const App: React.FC = () => {
   return (

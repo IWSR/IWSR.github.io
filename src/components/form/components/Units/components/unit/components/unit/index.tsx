@@ -152,7 +152,7 @@ const Unit: React.FC<Props> = ({ name }) => {
                     {(fields, { add }) => {
                       return (
                         <>
-                          {fields.map(({ name, key }, index) => {
+                          {fields.map(({ name, key }) => {
                             return (
                               <Row gutter={24} key={key}>
                                 <Col span={8}>
