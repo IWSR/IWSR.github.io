@@ -99,8 +99,16 @@ const Unit: React.FC<Props> = ({ name, index }) => {
 
       <Form.Item name={[name, "TRANSPORT"]}>
         <h3>运输工具</h3>
-        <PreviewMarkDown name={[name, "TRANSPORT", "EN"]} required={false} label="运输工具EN" />
-        <PreviewMarkDown name={[name, "TRANSPORT", "EN"]} required={false} label="运输工具CN" />
+        <PreviewMarkDown
+          name={[name, "TRANSPORT", "EN"]}
+          required={false}
+          label="运输工具EN"
+        />
+        <PreviewMarkDown
+          name={[name, "TRANSPORT", "EN"]}
+          required={false}
+          label="运输工具CN"
+        />
       </Form.Item>
 
       <Form.Item name={[name, "INVULNERABLE SAVE"]}>
@@ -141,7 +149,29 @@ const Unit: React.FC<Props> = ({ name, index }) => {
               required: true,
               message: "Input something!",
             },
+            () => ({
+              validator(_, data) {
+                const value = data.join("&");
+                const regex =
+                  /^[a-zA-Z0-9\u4e00-\u9fa5]+(&[a-zA-Z0-9\u4e00-\u9fa5]+)*$/;
+                if (value && regex.test(value)) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(
+                  new Error(
+                    "只允许出现英文字符、中文字符并且单词间只允许使用&分割"
+                  )
+                );
+              },
+            }),
           ]}
+          valuePropName="value"
+          getValueFromEvent={(e) => {
+            return e.target.value.split("&");
+          }}
+          getValueProps={(val) => {
+            return { value: val ? val.join("&") : "" };
+          }}
         >
           <Input />
         </Form.Item>
@@ -153,7 +183,29 @@ const Unit: React.FC<Props> = ({ name, index }) => {
               required: true,
               message: "Input something!",
             },
+            () => ({
+              validator(_, data) {
+                const value = data.join("&");
+                const regex =
+                  /^[a-zA-Z0-9\u4e00-\u9fa5]+(&[a-zA-Z0-9\u4e00-\u9fa5]+)*$/;
+                if (value && regex.test(value)) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(
+                  new Error(
+                    "只允许出现英文字符、中文字符并且单词间只允许使用&分割"
+                  )
+                );
+              },
+            }),
           ]}
+          valuePropName="value"
+          getValueFromEvent={(e) => {
+            return e.target.value.split("&");
+          }}
+          getValueProps={(val) => {
+            return { value: val ? val.join("&") : "" };
+          }}
         >
           <Input />
         </Form.Item>
