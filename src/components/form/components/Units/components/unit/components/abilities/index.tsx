@@ -171,8 +171,8 @@ const UnitAbility: React.FC<Props> = ({ name }) => {
                     </Col>
                   </Row>
                   <PreviewMarkDown
-                    name={[name, "describeEN"]}
-                    label="describeEN"
+                    name={[name, "descriptionEN"]}
+                    label="descriptionEN"
                   />
                   <PreviewMarkDown
                     name={[name, "descriptionCN"]}
@@ -238,8 +238,8 @@ const WeaponsAbility: React.FC<Props> = ({ name }) => {
                     </Col>
                   </Row>
                   <PreviewMarkDown
-                    name={[name, "describeEN"]}
-                    label="describeEN"
+                    name={[name, "descriptionEN"]}
+                    label="descriptionEN"
                   />
                   <PreviewMarkDown
                     name={[name, "descriptionCN"]}
@@ -287,8 +287,8 @@ const Aura: React.FC<Props> = ({ name }) => {
         </Col>
       </Row>
       <PreviewMarkDown
-        name={[name, "ABILITIES", "aura", "describeEN"]}
-        label="describeEN"
+        name={[name, "ABILITIES", "aura", "descriptionEN"]}
+        label="descriptionEN"
         required={false}
       />
       <PreviewMarkDown
@@ -305,8 +305,8 @@ const CanLead: React.FC<Props> = ({ name }) => {
     <Form.Item name={[name, "ABILITIES", "canLead"]}>
       <h3>领袖</h3>
       <PreviewMarkDown
-        name={[name, "ABILITIES", "canLead", "describeEN"]}
-        label="describeEN"
+        name={[name, "ABILITIES", "canLead", "descriptionEN"]}
+        label="descriptionEN"
         required={false}
       />
       <PreviewMarkDown

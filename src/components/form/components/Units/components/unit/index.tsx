@@ -62,7 +62,7 @@ const Unit: React.FC<Props> = ({ name, index }) => {
 
       <Form.Item
         label="背景描述CN"
-        name={[name, "describeCN"]}
+        name={[name, "descriptionCN"]}
         rules={[
           {
             required: true,
@@ -75,7 +75,7 @@ const Unit: React.FC<Props> = ({ name, index }) => {
 
       <Form.Item
         label="背景描述EN"
-        name={[name, "describeEN"]}
+        name={[name, "descriptionEN"]}
         rules={[
           {
             required: true,
