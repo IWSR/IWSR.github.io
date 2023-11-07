@@ -105,7 +105,7 @@ const Unit: React.FC<Props> = ({ name, index }) => {
           label="运输工具EN"
         />
         <PreviewMarkDown
-          name={[name, "TRANSPORT", "EN"]}
+          name={[name, "TRANSPORT", "CN"]}
           required={false}
           label="运输工具CN"
         />

@@ -199,7 +199,7 @@ const UnitAbility: React.FC<Props> = ({ name }) => {
 
 const WeaponsAbility: React.FC<Props> = ({ name }) => {
   return (
-    <Form.List name={[name, "ABILITIES", "weaponsAbility"]}>
+    <Form.List name={[name, "weaponsAbility"]}>
       {(fields, { add }) => {
         return (
           <>
@@ -266,13 +266,13 @@ const WeaponsAbility: React.FC<Props> = ({ name }) => {
 
 const Aura: React.FC<Props> = ({ name }) => {
   return (
-    <Form.Item name={[name, "ABILITIES", "aura"]}>
+    <Form.Item name={[name, "aura"]}>
       <h3>光环</h3>
       <Row gutter={24}>
         <Col span={8}>
           <Form.Item
             label="名称EN"
-            name={[name, "ABILITIES", "aura", "EN"]}
+            name={[name, "aura", "EN"]}
           >
             <Input />
           </Form.Item>
@@ -280,19 +280,19 @@ const Aura: React.FC<Props> = ({ name }) => {
         <Col span={8}>
           <Form.Item
             label="名称CN"
-            name={[name, "ABILITIES", "aura", "CN"]}
+            name={[name, "aura", "CN"]}
           >
             <Input />
           </Form.Item>
         </Col>
       </Row>
       <PreviewMarkDown
-        name={[name, "ABILITIES", "aura", "descriptionEN"]}
+        name={[name, "aura", "descriptionEN"]}
         label="descriptionEN"
         required={false}
       />
       <PreviewMarkDown
-        name={[name, "ABILITIES", "aura", "descriptionCN"]}
+        name={[name, "aura", "descriptionCN"]}
         label="descriptionCN"
         required={false}
       />
@@ -302,15 +302,15 @@ const Aura: React.FC<Props> = ({ name }) => {
 
 const CanLead: React.FC<Props> = ({ name }) => {
   return (
-    <Form.Item name={[name, "ABILITIES", "canLead"]}>
+    <Form.Item name={[name, "leader"]}>
       <h3>领袖</h3>
       <PreviewMarkDown
-        name={[name, "ABILITIES", "canLead", "descriptionEN"]}
+        name={[name, "leader", "descriptionEN"]}
         label="descriptionEN"
         required={false}
       />
       <PreviewMarkDown
-        name={[name, "ABILITIES", "canLead", "descriptionCN"]}
+        name={[name, "leader", "descriptionCN"]}
         label="descriptionCN"
         required={false}
       />
