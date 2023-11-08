@@ -45,7 +45,7 @@ const FormContext = React.createContext<null | FormInstance<any>>(null);
 
 const FormDisabledDemo: React.FC = () => {
   const [form] = Form.useForm();
-  const [fileData, setFileData] = useState(null);
+  const [, setFileData] = useState(null);
 
   const beforeUpload = (file) => {
     // 检查文件类型是否为JSON
