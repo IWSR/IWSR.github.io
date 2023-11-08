@@ -1,43 +1,37 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 
 import { Row, Col, Form, Input, Tabs, Button } from "antd";
-import { Upload, message } from 'antd';
-import type { FormInstance, TabsProps } from 'antd';
+import { Upload, message } from "antd";
+import type { FormInstance, TabsProps } from "antd";
 
-import ArmyRules from './components/ArmyRules/index';
-import Detachments from './components/Detachments/index';
-import Units from './components/Units/index';
+import ArmyRules from "./components/ArmyRules/index";
+import Detachments from "./components/Detachments/index";
+import Units from "./components/Units/index";
 
 const onChange = (key: string) => {
   console.log(key);
 };
 
-const items: TabsProps['items'] = [
+const items: TabsProps["items"] = [
   {
-    key: '1',
-    label: '军队总规',
-    children: (
-      <ArmyRules />
-    ),
+    key: "1",
+    label: "军队总规",
+    children: <ArmyRules />,
   },
   {
-    key: '2',
-    label: '分队规则',
-    children: (
-      <Detachments />
-    ),
+    key: "2",
+    label: "分队规则",
+    children: <Detachments />,
   },
   {
-    key: '3',
-    label: '单位',
-    children: (
-      <Units />
-    ),
+    key: "3",
+    label: "单位",
+    children: <Units />,
   },
 ];
 
 const onFinish = (values: any) => {
-  console.log('Success:', values);
+  console.log("Success:", values);
   const jsonString = JSON.stringify(values);
   const blob = new Blob([jsonString], { type: "application/json" });
   const a = document.createElement("a");
@@ -55,11 +49,11 @@ const FormDisabledDemo: React.FC = () => {
 
   const beforeUpload = (file) => {
     // 检查文件类型是否为JSON
-    console.log(file, 'file');
-    const isJSON = file.type === 'application/json';
+    console.log(file, "file");
+    const isJSON = file.type === "application/json";
 
     if (!isJSON) {
-      message.error('只能上传JSON文件！');
+      message.error("只能上传JSON文件！");
     }
 
     const reader = new FileReader();
@@ -68,17 +62,16 @@ const FormDisabledDemo: React.FC = () => {
       try {
         console.log(e);
         const jsonData = JSON.parse(e.target.result);
-        console.log(jsonData, 'jsonData');
+        console.log(jsonData, "jsonData");
         setFileData(jsonData);
-        // form.resetFields(jsonData);
-        message.success('JSON 文件上传成功！');
+        form.setFieldsValue(jsonData);
+        message.success("JSON 文件上传成功！");
       } catch (error) {
         console.log(error);
-        message.error('无法解析 JSON 文件！');
+        message.error("无法解析 JSON 文件！");
       }
     };
     reader.readAsText(file);
-
 
     return isJSON;
   };
@@ -93,85 +86,76 @@ const FormDisabledDemo: React.FC = () => {
         alignItems: "center",
       }}
     >
-      <Upload
-        beforeUpload={beforeUpload}
-      >
+      <Upload beforeUpload={beforeUpload}>
         <Button>上传 JSON 文件</Button>
       </Upload>
-      {
-        fileData && (
-          <Form
-            layout="vertical"
-            form={form}
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 16 }}
-            style={{ width: "100%" }}
-            initialValues={fileData}
-            onFinish={onFinish}
-          >
-            <Row gutter={24}>
-              <Col span={8}>
-                <Form.Item
-                  label="version"
-                  name="version"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Input something!",
-                    },
-                  ]}
-                >
-                  <Input />
-                </Form.Item>
-              </Col>
-            </Row>
-            <Row gutter={24}>
-              <Col span={8}>
-                <Form.Item
-                  label="Faction"
-                  name="Faction"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Input something!",
-                    },
-                  ]}
-                >
-                  <Input />
-                </Form.Item>
-              </Col>
-              <Col span={8}>
-                <Form.Item
-                  label="FactionCN"
-                  name="FactionCN"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Input something!",
-                    },
-                  ]}
-                >
-                  <Input />
-                </Form.Item>
-              </Col>
-            </Row>
-            <FormContext.Provider value={form}>
-              <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
-            </FormContext.Provider>
-            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-              <Button type="primary" htmlType="submit">
-                Submit
-              </Button>
+      <Form
+        layout="vertical"
+        form={form}
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        style={{ width: "100%" }}
+        onFinish={onFinish}
+      >
+        <Row gutter={24}>
+          <Col span={8}>
+            <Form.Item
+              label="version"
+              name="version"
+              rules={[
+                {
+                  required: true,
+                  message: "Input something!",
+                },
+              ]}
+            >
+              <Input />
             </Form.Item>
-          </Form>
-          )
-      }
+          </Col>
+        </Row>
+        <Row gutter={24}>
+          <Col span={8}>
+            <Form.Item
+              label="Faction"
+              name="Faction"
+              rules={[
+                {
+                  required: true,
+                  message: "Input something!",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col span={8}>
+            <Form.Item
+              label="FactionCN"
+              name="FactionCN"
+              rules={[
+                {
+                  required: true,
+                  message: "Input something!",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+        </Row>
+        <FormContext.Provider value={form}>
+          <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+        </FormContext.Provider>
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
   );
 };
 
 export default FormDisabledDemo;
 
-export {
-  FormContext
-};
+export { FormContext };

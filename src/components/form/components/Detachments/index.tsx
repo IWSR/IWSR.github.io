@@ -95,21 +95,9 @@ const getItems = (name: number): TabsProps["items"] => [
                     
                     <PreviewMarkDown name={[name, "descriptionEN"]} label="descriptionEN" />
                     
-                    <PreviewMarkDown name={[name, "whenEN"]} label="使用时机EN" />
+                    <PreviewMarkDown name={[name, "contentEN"]} label="contentEN" />
 
-                    <PreviewMarkDown name={[name, "whenCN"]} label="使用时机CN" />
-
-                    <PreviewMarkDown name={[name, "targetEN"]} label="目标EN" />
-
-                    <PreviewMarkDown name={[name, "targetCN"]} label="目标CN" />
-
-                    <PreviewMarkDown name={[name, "effectEN"]} label="效果EN" />
-
-                    <PreviewMarkDown name={[name, "effectCN"]} label="效果CN" />
-
-                    <PreviewMarkDown name={[name, "restrictionsEN"]} label="限制EN" />
-
-                    <PreviewMarkDown name={[name, "restrictionsCN"]} label="限制CN" />
+                    <PreviewMarkDown name={[name, "contentCN"]} label="contentCN" />
                   </Form.Item>
                 );
               })}

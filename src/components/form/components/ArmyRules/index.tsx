@@ -75,7 +75,7 @@ const ArmyRules: React.FC = () => {
                           </Form.Item>
                         </Col>
                       </Row>
-
+                      
                       <PreviewMarkDown
                         name={[name, "descriptionCN"]}
                         label="descriptionCN"
