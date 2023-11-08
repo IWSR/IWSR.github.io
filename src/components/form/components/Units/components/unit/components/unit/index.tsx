@@ -9,13 +9,14 @@ interface Props extends React.PropsWithChildren {
 const Unit: React.FC<Props> = ({ name }) => {
   return (
     <Form.List name={[name, "units"]}>
-      {(fields, { add }) => {
+      {(fields, { add, remove }) => {
         return (
           <>
             {fields.map(({ name, key }, index) => {
               return (
                 <Form.Item key={key}>
                   <h3>构成该单位的模型——模型{index}</h3>
+                  <span onClick={() => remove(index)}>删除</span>
                   <Row gutter={24}>
                     <Col span={8}>
                       <Form.Item
@@ -149,55 +150,58 @@ const Unit: React.FC<Props> = ({ name }) => {
                   </Row>
 
                   <Form.List name={[name, "armory"]}>
-                    {(fields, { add }) => {
+                    {(fields, { add, remove }) => {
                       return (
                         <>
-                          {fields.map(({ name, key }) => {
+                          {fields.map(({ name, key }, index) => {
                             return (
-                              <Row gutter={24} key={key}>
-                                <Col span={8}>
-                                  <Form.Item
-                                    label="武器名称EN"
-                                    name={[name, "EN"]}
-                                    rules={[
-                                      {
-                                        required: true,
-                                        message: "Input something!",
-                                      },
-                                    ]}
-                                  >
-                                    <Input />
-                                  </Form.Item>
-                                </Col>
-                                <Col span={8}>
-                                  <Form.Item
-                                    label="武器名称CN"
-                                    name={[name, "CN"]}
-                                    rules={[
-                                      {
-                                        required: true,
-                                        message: "Input something!",
-                                      },
-                                    ]}
-                                  >
-                                    <Input />
-                                  </Form.Item>
-                                </Col>
-                                <Col span={8}>
-                                  <Form.Item
-                                    label="数量"
-                                    name={[name, "number"]}
-                                    rules={[
-                                      {
-                                        required: true,
-                                        message: "Input something!",
-                                      },
-                                    ]}
-                                  >
-                                    <Input />
-                                  </Form.Item>
-                                </Col>
-                              </Row>
+                              <>
+                                <span onClick={() => remove(index)}>删除</span>
+                                <Row gutter={24} key={key}>
+                                  <Col span={8}>
+                                    <Form.Item
+                                      label="武器名称EN"
+                                      name={[name, "EN"]}
+                                      rules={[
+                                        {
+                                          required: true,
+                                          message: "Input something!",
+                                        },
+                                      ]}
+                                    >
+                                      <Input />
+                                    </Form.Item>
+                                  </Col>
+                                  <Col span={8}>
+                                    <Form.Item
+                                      label="武器名称CN"
+                                      name={[name, "CN"]}
+                                      rules={[
+                                        {
+                                          required: true,
+                                          message: "Input something!",
+                                        },
+                                      ]}
+                                    >
+                                      <Input />
+                                    </Form.Item>
+                                  </Col>
+                                  <Col span={8}>
+                                    <Form.Item
+                                      label="数量"
+                                      name={[name, "number"]}
+                                      rules={[
+                                        {
+                                          required: true,
+                                          message: "Input something!",
+                                        },
+                                      ]}
+                                    >
+                                      <Input />
+                                    </Form.Item>
+                                  </Col>
+                                </Row>
+                              </>
                             );
                           })}
                           <Form.Item>
@@ -217,6 +221,7 @@ const Unit: React.FC<Props> = ({ name }) => {
                   <PreviewMarkDown
                     label="装备描述"
                     name={[name, "armoryDesc"]}
+                    required={false}
                   />
 
                   <PreviewMarkDown

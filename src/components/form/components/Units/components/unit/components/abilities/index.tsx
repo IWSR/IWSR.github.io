@@ -9,47 +9,50 @@ interface Props extends React.PropsWithChildren {
 const CORE: React.FC<Props> = ({ name }) => {
   return (
     <Form.List name={[name, "ABILITIES", "CORE"]}>
-      {(fields, { add }) => {
+      {(fields, { add, remove }) => {
         return (
           <>
             <h3>CORE</h3>
-            {fields.map(({ name, key }) => {
+            {fields.map(({ name, key }, index) => {
               return (
-                <Row gutter={24} key={key}>
-                  <Col span={8}>
-                    <Form.Item
-                      label="名称EN"
-                      name={[name, "EN"]}
-                      rules={[
-                        {
-                          required: true,
-                          message: "Input something!",
-                        },
-                      ]}
-                    >
-                      <Input />
-                    </Form.Item>
-                  </Col>
-                  <Col span={8}>
-                    <Form.Item
-                      label="名称CN"
-                      name={[name, "CN"]}
-                      rules={[
-                        {
-                          required: true,
-                          message: "Input something!",
-                        },
-                      ]}
-                    >
-                      <Input />
-                    </Form.Item>
-                  </Col>
-                  <Col span={8}>
-                    <Form.Item label="value" name={[name, "value"]}>
-                      <Input />
-                    </Form.Item>
-                  </Col>
-                </Row>
+                <>
+                  <span onClick={() => remove(index)}>删除</span>
+                  <Row gutter={24} key={key}>
+                    <Col span={8}>
+                      <Form.Item
+                        label="名称EN"
+                        name={[name, "EN"]}
+                        rules={[
+                          {
+                            required: true,
+                            message: "Input something!",
+                          },
+                        ]}
+                      >
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                    <Col span={8}>
+                      <Form.Item
+                        label="名称CN"
+                        name={[name, "CN"]}
+                        rules={[
+                          {
+                            required: true,
+                            message: "Input something!",
+                          },
+                        ]}
+                      >
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                    <Col span={8}>
+                      <Form.Item label="value" name={[name, "value"]}>
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                  </Row>
+                </>
               );
             })}
             <Form.Item>
@@ -71,12 +74,14 @@ const CORE: React.FC<Props> = ({ name }) => {
 const Faction: React.FC<Props> = ({ name }) => {
   return (
     <Form.List name={[name, "ABILITIES", "Faction"]}>
-      {(fields, { add }) => {
+      {(fields, { add, remove }) => {
         return (
           <>
             <h3>Faction</h3>
-            {fields.map(({ name, key }) => {
+            {fields.map(({ name, key }, index) => {
               return (
+                <>
+                <span onClick={() => remove(index)}>删除</span>
                 <Row gutter={24} key={key}>
                   <Col span={8}>
                     <Form.Item
@@ -112,6 +117,7 @@ const Faction: React.FC<Props> = ({ name }) => {
                     </Form.Item>
                   </Col>
                 </Row>
+                </>
               );
             })}
             <Form.Item>
@@ -133,13 +139,14 @@ const Faction: React.FC<Props> = ({ name }) => {
 const UnitAbility: React.FC<Props> = ({ name }) => {
   return (
     <Form.List name={[name, "ABILITIES", "UnitAbility"]}>
-      {(fields, { add }) => {
+      {(fields, { add, remove }) => {
         return (
           <>
             <h3>UnitAbility</h3>
-            {fields.map(({ name, key }) => {
+            {fields.map(({ name, key }, index) => {
               return (
                 <>
+                  <span onClick={() => remove(index)}>删除</span>
                   <Row gutter={24} key={key}>
                     <Col span={8}>
                       <Form.Item
@@ -200,13 +207,14 @@ const UnitAbility: React.FC<Props> = ({ name }) => {
 const WeaponsAbility: React.FC<Props> = ({ name }) => {
   return (
     <Form.List name={[name, "weaponsAbility"]}>
-      {(fields, { add }) => {
+      {(fields, { add, remove }) => {
         return (
           <>
             <h3>装备技能</h3>
-            {fields.map(({ name, key }) => {
+            {fields.map(({ name, key }, index) => {
               return (
                 <>
+                  <span onClick={() => remove(index)}>删除</span>
                   <Row gutter={24} key={key}>
                     <Col span={8}>
                       <Form.Item
@@ -270,18 +278,12 @@ const Aura: React.FC<Props> = ({ name }) => {
       <h3>光环</h3>
       <Row gutter={24}>
         <Col span={8}>
-          <Form.Item
-            label="名称EN"
-            name={[name, "aura", "EN"]}
-          >
+          <Form.Item label="名称EN" name={[name, "aura", "EN"]}>
             <Input />
           </Form.Item>
         </Col>
         <Col span={8}>
-          <Form.Item
-            label="名称CN"
-            name={[name, "aura", "CN"]}
-          >
+          <Form.Item label="名称CN" name={[name, "aura", "CN"]}>
             <Input />
           </Form.Item>
         </Col>

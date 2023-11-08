@@ -9,13 +9,14 @@ const getItems = (name: string): TabsProps["items"] => [
     label: "BATTLELINE",
     children: (
       <Form.List name={[name, "BATTLELINE"]}>
-        {(fields, { add }) => {
+        {(fields, { add, remove }) => {
           return (
             <>
               <Collapse>
                 {fields.map(({ name, key }, index) => {
                   return (
                     <Collapse.Panel header={`unit ${index}`} key={index}>
+                      <span onClick={() => remove(index)}>删除</span>
                       <Unit key={key} name={name} index={index} />;
                     </Collapse.Panel>
                   );
@@ -41,13 +42,14 @@ const getItems = (name: string): TabsProps["items"] => [
     label: "CHARACTER",
     children: (
       <Form.List name={[name, "CHARACTER"]}>
-        {(fields, { add }) => {
+        {(fields, { add, remove }) => {
           return (
             <>
               <Collapse>
                 {fields.map(({ name, key }, index) => {
                   return (
                     <Collapse.Panel header={`unit ${index}`} key={index}>
+                      <span onClick={() => remove(index)}>删除</span>
                       <Unit key={key} name={name} index={index} />;
                     </Collapse.Panel>
                   );
@@ -73,13 +75,14 @@ const getItems = (name: string): TabsProps["items"] => [
     label: "DEDICATED TRANSPORT",
     children: (
       <Form.List name={[name, "DEDICATED TRANSPORT"]}>
-        {(fields, { add }) => {
+        {(fields, { add, remove }) => {
           return (
             <>
               <Collapse>
                 {fields.map(({ name, key }, index) => {
                   return (
                     <Collapse.Panel header={`unit ${index}`} key={index}>
+                      <span onClick={() => remove(index)}>删除</span>
                       <Unit key={key} name={name} index={index} />;
                     </Collapse.Panel>
                   );
@@ -105,13 +108,14 @@ const getItems = (name: string): TabsProps["items"] => [
     label: "OTHER DATASHEETS",
     children: (
       <Form.List name={[name, "OTHER DATASHEETS"]}>
-        {(fields, { add }) => {
+        {(fields, { add, remove }) => {
           return (
             <>
               <Collapse>
                 {fields.map(({ name, key }, index) => {
                   return (
                     <Collapse.Panel header={`unit ${index}`} key={index}>
+                      <span onClick={() => remove(index)}>删除</span>
                       <Unit key={key} name={name} index={index} />;
                     </Collapse.Panel>
                   );

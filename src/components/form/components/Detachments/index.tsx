@@ -9,13 +9,13 @@ const getItems = (name: number): TabsProps["items"] => [
     label: "CP",
     children: (
       <Form.List name={[name, 'CPS']}>
-        {(fields, { add }) => {
+        {(fields, { add, remove }) => {
           return (
             <>
               {fields.map(({ name, key }, index) => {
                 return (
                   <Form.Item key={key}>
-                    <h2>CP-{index}</h2>
+                    <h2>CP-{index} <span onClick={() => remove(index)}>删除</span></h2>
                     <Row gutter={24}>
                       <Col span={8}>
                         <Form.Item
@@ -121,13 +121,13 @@ const getItems = (name: number): TabsProps["items"] => [
     label: "强化",
     children: (
       <Form.List name={[name, 'ENHANCEMENTS']}>
-        {(fields, { add }) => {
+        {(fields, { add, remove }) => {
           return (
             <>
               {fields.map(({ name, key }, index) => {
                 return (
                   <Form.Item key={key}>
-                    <h2>强化-{index}</h2>
+                    <h2>强化-{index} <span onClick={() => remove(index)}>删除</span></h2>
                     <Row gutter={24}>
                       <Col span={8}>
                         <Form.Item
@@ -202,13 +202,13 @@ const Detachments: React.FC = () => {
     <div>
       <h3>分队规则</h3>
       <Form.List name="Detachments">
-        {(fields, { add }) => {
+        {(fields, { add, remove }) => {
           return (
             <>
               {fields.map(({ key, name }, index) => {
                 return (
                   <Form.Item key={key}>
-                    <h2>分队-{index}</h2>
+                    <h2>分队-{index} <span onClick={() => remove(index)}>删除</span></h2>
                     <Row gutter={24}>
                       <Col span={8}>
                         <Form.Item

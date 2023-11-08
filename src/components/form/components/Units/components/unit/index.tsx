@@ -86,6 +86,17 @@ const Unit: React.FC<Props> = ({ name, index }) => {
         <Input />
       </Form.Item>
 
+      <PreviewMarkDown
+          name={[name, "unitDescriptionEN"]}
+          required={false}
+          label="单位构成描述EN"
+        />
+        <PreviewMarkDown
+          name={[name, "unitDescriptionCN"]}
+          required={false}
+          label="单位构成描述CN"
+        />
+
       <h3>构成该单位的模型</h3>
 
       <ComposeUnit name={name} />
