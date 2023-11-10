@@ -122,34 +122,6 @@ const Unit: React.FC<Props> = ({ name, index }) => {
         />
       </Form.Item>
 
-      <Form.Item name={[name, "INVULNERABLE SAVE"]}>
-        <h3>特保</h3>
-        <Form.Item
-          label="远程特"
-          name={[name, "INVULNERABLE SAVE", "Against ranged attacks"]}
-          rules={[
-            {
-              required: true,
-              message: "Input something!",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label="近战特"
-          name={[name, "INVULNERABLE SAVE", "Against meleed attacks"]}
-          rules={[
-            {
-              required: true,
-              message: "Input something!",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-      </Form.Item>
-
       <Form.Item name={[name, "KEYWORDS"]}>
         <h3>关键词</h3>
         <Form.Item

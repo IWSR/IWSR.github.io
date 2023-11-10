@@ -63,6 +63,37 @@ const Unit: React.FC<Props> = ({ name }) => {
                   </Row>
 
                   <Row gutter={24}>
+                    <Col span={8}>
+                      <Form.Item
+                        label="远程特"
+                        name={[name, "INVULNERABLE SAVE", "Against ranged attacks"]}
+                        rules={[
+                          {
+                            required: true,
+                            message: "Input something!",
+                          },
+                        ]}
+                      >
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                    <Col span={8}>
+                      <Form.Item
+                        label="近战特"
+                        name={[name, "INVULNERABLE SAVE", "Against meleed attacks"]}
+                        rules={[
+                          {
+                            required: true,
+                            message: "Input something!",
+                          },
+                        ]}
+                      >
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                  </Row>
+
+                  <Row gutter={24}>
                     <Col span={4}>
                       <Form.Item
                         label="M"
