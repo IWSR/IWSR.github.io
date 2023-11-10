@@ -81,42 +81,42 @@ const Faction: React.FC<Props> = ({ name }) => {
             {fields.map(({ name, key }, index) => {
               return (
                 <>
-                <span onClick={() => remove(index)}>删除</span>
-                <Row gutter={24} key={key}>
-                  <Col span={8}>
-                    <Form.Item
-                      label="名称EN"
-                      name={[name, "EN"]}
-                      rules={[
-                        {
-                          required: true,
-                          message: "Input something!",
-                        },
-                      ]}
-                    >
-                      <Input />
-                    </Form.Item>
-                  </Col>
-                  <Col span={8}>
-                    <Form.Item
-                      label="名称CN"
-                      name={[name, "CN"]}
-                      rules={[
-                        {
-                          required: true,
-                          message: "Input something!",
-                        },
-                      ]}
-                    >
-                      <Input />
-                    </Form.Item>
-                  </Col>
-                  <Col span={8}>
-                    <Form.Item label="value" name={[name, "value"]}>
-                      <Input />
-                    </Form.Item>
-                  </Col>
-                </Row>
+                  <span onClick={() => remove(index)}>删除</span>
+                  <Row gutter={24} key={key}>
+                    <Col span={8}>
+                      <Form.Item
+                        label="名称EN"
+                        name={[name, "EN"]}
+                        rules={[
+                          {
+                            required: true,
+                            message: "Input something!",
+                          },
+                        ]}
+                      >
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                    <Col span={8}>
+                      <Form.Item
+                        label="名称CN"
+                        name={[name, "CN"]}
+                        rules={[
+                          {
+                            required: true,
+                            message: "Input something!",
+                          },
+                        ]}
+                      >
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                    <Col span={8}>
+                      <Form.Item label="value" name={[name, "value"]}>
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                  </Row>
                 </>
               );
             })}
@@ -320,6 +320,26 @@ const CanLead: React.FC<Props> = ({ name }) => {
   );
 };
 
+const DAMAGED: React.FC<Props> = ({ name }) => {
+  return (
+    <>
+      <h3>损毁</h3>
+      <Row gutter={24}>
+        <Col span={8}>
+          <Form.Item label="损毁EN" name={[name, "damaged", "En"]}>
+            <Input />
+          </Form.Item>
+        </Col>
+        <Col span={8}>
+          <Form.Item label="损毁CN" name={[name, "damaged", "Cn"]}>
+            <Input />
+          </Form.Item>
+        </Col>
+      </Row>
+    </>
+  );
+};
+
 const ABILITIES: React.FC<Props> = ({ name }) => {
   return (
     <>
@@ -327,6 +347,7 @@ const ABILITIES: React.FC<Props> = ({ name }) => {
       <Faction name={name} />
       <UnitAbility name={name} />
       <WeaponsAbility name={name} />
+      <DAMAGED name={name} />
       <Aura name={name} />
       <CanLead name={name} />
     </>
