@@ -326,12 +326,12 @@ const DAMAGED: React.FC<Props> = ({ name }) => {
       <h3>损毁</h3>
       <Row gutter={24}>
         <Col span={8}>
-          <Form.Item label="损毁EN" name={[name, "damaged", "En"]}>
+          <Form.Item label="损毁EN" name={[name, "damaged", "EN"]}>
             <Input />
           </Form.Item>
         </Col>
         <Col span={8}>
-          <Form.Item label="损毁CN" name={[name, "damaged", "Cn"]}>
+          <Form.Item label="损毁CN" name={[name, "damaged", "CN"]}>
             <Input />
           </Form.Item>
         </Col>
