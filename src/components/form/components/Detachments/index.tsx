@@ -23,7 +23,6 @@ const getItems = (name: number): TabsProps["items"] => [
                           name={[name, "nameEN"]}
                           rules={[
                             {
-                              required: true,
                               message: "Input something!",
                             },
                           ]}
@@ -67,7 +66,6 @@ const getItems = (name: number): TabsProps["items"] => [
                           name={[name, "typeEN"]}
                           rules={[
                             {
-                              required: true,
                               message: "Input something!",
                             },
                           ]}
@@ -91,13 +89,9 @@ const getItems = (name: number): TabsProps["items"] => [
                       </Col>
                     </Row>
                     
-                    <PreviewMarkDown name={[name, "descriptionCN"]} label="descriptionCN" />
-                    
-                    <PreviewMarkDown name={[name, "descriptionEN"]} label="descriptionEN" />
-                    
-                    <PreviewMarkDown name={[name, "contentEN"]} label="contentEN" />
-
                     <PreviewMarkDown name={[name, "contentCN"]} label="contentCN" />
+
+                    <PreviewMarkDown required={false} name={[name, "contentEN"]} label="contentEN" />
                   </Form.Item>
                 );
               })}
@@ -135,7 +129,6 @@ const getItems = (name: number): TabsProps["items"] => [
                           name={[name, "EN"]}
                           rules={[
                             {
-                              required: true,
                               message: "Input something!",
                             },
                           ]}
@@ -175,7 +168,7 @@ const getItems = (name: number): TabsProps["items"] => [
 
                     <PreviewMarkDown name={[name, "descriptionCN"]} label="descriptionCN" />
                     
-                    <PreviewMarkDown name={[name, "descriptionEN"]} label="descriptionEN" />
+                    <PreviewMarkDown required={false} name={[name, "descriptionEN"]} label="descriptionEN" />
                     
                   </Form.Item>
                 );
@@ -216,7 +209,6 @@ const Detachments: React.FC = () => {
                           name={[name, "name"]}
                           rules={[
                             {
-                              required: true,
                               message: "Input something!",
                             },
                           ]}
@@ -246,7 +238,6 @@ const Detachments: React.FC = () => {
                           name={[name, "abilityNameEN"]}
                           rules={[
                             {
-                              required: true,
                               message: "Input something!",
                             },
                           ]}
@@ -272,7 +263,7 @@ const Detachments: React.FC = () => {
                     
                     <PreviewMarkDown name={[name, "abilityDescriptionCN"]} label="能力描述CN" />
                     
-                    <PreviewMarkDown name={[name, "abilityDescriptionEN"]} label="能力描述EN" />
+                    <PreviewMarkDown required={false} name={[name, "abilityDescriptionEN"]} label="能力描述EN" />
                     
                     <Tabs
                       defaultActiveKey="1"

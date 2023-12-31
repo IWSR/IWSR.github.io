@@ -22,12 +22,6 @@ const Weapons: React.FC<Props> = ({ name }) => {
                       <Form.Item
                         label="武器名称EN"
                         name={[name, "EN"]}
-                        rules={[
-                          {
-                            required: true,
-                            message: "Input something!",
-                          },
-                        ]}
                       >
                         <Input />
                       </Form.Item>

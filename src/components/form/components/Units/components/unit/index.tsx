@@ -2,7 +2,6 @@ import React from "react";
 import { Input, Form, Row, Col } from "antd";
 import ComposeUnit from "./components/unit";
 import Weapons from "./components/weapon";
-import ABILITIES from "./components/abilities";
 import PreviewMarkDown from "../../../components/PreviewMarkDown";
 
 interface Props extends React.PropsWithChildren {
@@ -22,7 +21,6 @@ const Unit: React.FC<Props> = ({ name, index }) => {
             name={[name, "EN"]}
             rules={[
               {
-                required: true,
                 message: "Input something!",
               },
             ]}
@@ -60,42 +58,15 @@ const Unit: React.FC<Props> = ({ name, index }) => {
         </Col>
       </Row>
 
-      <Form.Item
-        label="背景描述CN"
-        name={[name, "descriptionCN"]}
-        rules={[
-          {
-            required: true,
-            message: "Input something!",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="背景描述EN"
-        name={[name, "descriptionEN"]}
-        rules={[
-          {
-            required: true,
-            message: "Input something!",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
       <PreviewMarkDown
-          name={[name, "unitDescriptionEN"]}
-          required={false}
-          label="单位构成描述EN"
-        />
-        <PreviewMarkDown
-          name={[name, "unitDescriptionCN"]}
-          required={false}
-          label="单位构成描述CN"
-        />
+        name={[name, "unitDescriptionEN"]}
+        required={false}
+        label="单位构成描述EN"
+      />
+      <PreviewMarkDown
+        name={[name, "unitDescriptionCN"]}
+        label="单位构成描述CN"
+      />
 
       <h3>构成该单位的模型</h3>
 
@@ -106,21 +77,17 @@ const Unit: React.FC<Props> = ({ name, index }) => {
       <Weapons name={name} />
 
       <h3>能力</h3>
-      <ABILITIES name={name} />
+      <PreviewMarkDown
+        name={[name, "ABILITIES", "cn"]}
+        required={true}
+        label="能力描述CN"
+      />
 
-      <Form.Item name={[name, "TRANSPORT"]}>
-        <h3>运输工具</h3>
-        <PreviewMarkDown
-          name={[name, "TRANSPORT", "EN"]}
-          required={false}
-          label="运输工具EN"
-        />
-        <PreviewMarkDown
-          name={[name, "TRANSPORT", "CN"]}
-          required={false}
-          label="运输工具CN"
-        />
-      </Form.Item>
+      <PreviewMarkDown
+        required={false}
+        name={[name, "ABILITIES", "en"]}
+        label="能力描述EN"
+      />
 
       <Form.Item name={[name, "KEYWORDS"]}>
         <h3>关键词</h3>
@@ -135,8 +102,7 @@ const Unit: React.FC<Props> = ({ name, index }) => {
             () => ({
               validator(_, data) {
                 const value = data.join("&");
-                const regex =
-                  /^[a-zA-Z0-9\u4e00-\u9fa5]+(&[a-zA-Z0-9\u4e00-\u9fa5]+)*$/;
+                const regex = /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*$/;
                 if (value && regex.test(value)) {
                   return Promise.resolve();
                 }
@@ -163,14 +129,14 @@ const Unit: React.FC<Props> = ({ name, index }) => {
           name={[name, "KEYWORDS", "EN"]}
           rules={[
             {
-              required: true,
+              required: false,
               message: "Input something!",
             },
             () => ({
               validator(_, data) {
                 const value = data.join("&");
                 const regex =
-                  /^[a-zA-Z0-9\u4e00-\u9fa5]+(&[a-zA-Z0-9\u4e00-\u9fa5]+)*$/;
+                  /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*$/;
                 if (value && regex.test(value)) {
                   return Promise.resolve();
                 }

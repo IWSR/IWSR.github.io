@@ -22,12 +22,6 @@ const Unit: React.FC<Props> = ({ name }) => {
                       <Form.Item
                         label="模型名称EN"
                         name={[name, "EN"]}
-                        rules={[
-                          {
-                            required: true,
-                            message: "Input something!",
-                          },
-                        ]}
                       >
                         <Input />
                       </Form.Item>
@@ -193,12 +187,6 @@ const Unit: React.FC<Props> = ({ name }) => {
                                     <Form.Item
                                       label="武器名称EN"
                                       name={[name, "EN"]}
-                                      rules={[
-                                        {
-                                          required: true,
-                                          message: "Input something!",
-                                        },
-                                      ]}
                                     >
                                       <Input />
                                     </Form.Item>
@@ -250,14 +238,15 @@ const Unit: React.FC<Props> = ({ name }) => {
                   </Form.List>
 
                   <PreviewMarkDown
-                    label="装备描述"
-                    name={[name, "armoryDesc"]}
+                    label="装备描述/替换 CN"
+                    name={[name, "armoryDescCN"]}
                     required={false}
                   />
 
                   <PreviewMarkDown
-                    label="装备替换选项"
-                    name={[name, "armoryOption"]}
+                    label="装备描述/替换 EN"
+                    required={false}
+                    name={[name, "armoryDescEN"]}
                   />
                 </Form.Item>
               );

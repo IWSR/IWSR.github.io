@@ -9,31 +9,6 @@ const ArmyRules: React.FC = () => {
     <Form.Item name="ArmyRules">
       <>
         <h3>军队规则</h3>
-        <Form.Item
-          label="背景CN"
-          name={["ArmyRules", "descriptionCN"]}
-          rules={[
-            {
-              required: true,
-              message: "Input something!",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-
-        <Form.Item
-          label="背景EN"
-          name={["ArmyRules", "descriptionEN"]}
-          rules={[
-            {
-              required: true,
-              message: "Input something!",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
 
         <h3>rules</h3>
 
@@ -52,7 +27,6 @@ const ArmyRules: React.FC = () => {
                             name={[name, "labelEN"]}
                             rules={[
                               {
-                                required: true,
                                 message: "Input something!",
                               },
                             ]}
@@ -84,6 +58,7 @@ const ArmyRules: React.FC = () => {
                       <PreviewMarkDown
                         name={[name, "descriptionEN"]}
                         label="descriptionEN"
+                        required={false}
                       />
                     </Form.Item>
                   );

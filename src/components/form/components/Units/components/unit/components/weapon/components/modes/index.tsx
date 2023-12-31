@@ -134,12 +134,6 @@ const Mode: React.FC<Props> = ({ name }) => {
                             <Form.Item
                               label="武器能力名称EN"
                               name={[name, "EN"]}
-                              rules={[
-                                {
-                                  required: true,
-                                  message: "Input something!",
-                                },
-                              ]}
                             >
                               <Input />
                             </Form.Item>
@@ -307,12 +301,6 @@ const Mode: React.FC<Props> = ({ name }) => {
                                         <Form.Item
                                           label="武器能力名称EN"
                                           name={[name, "EN"]}
-                                          rules={[
-                                            {
-                                              required: true,
-                                              message: "Input something!",
-                                            },
-                                          ]}
                                         >
                                           <Input />
                                         </Form.Item>

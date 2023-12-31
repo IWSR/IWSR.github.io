@@ -120,7 +120,6 @@ const FormDisabledDemo: React.FC = () => {
               name="Faction"
               rules={[
                 {
-                  required: true,
                   message: "Input something!",
                 },
               ]}
