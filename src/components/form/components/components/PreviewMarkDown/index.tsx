@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Input, Form, Modal } from "antd";
 import Markdown from "react-markdown";
+// import { FormContext } from "../../../index";
 const { TextArea } = Input;
 
 interface Props extends React.PropsWithChildren {
@@ -10,6 +11,7 @@ interface Props extends React.PropsWithChildren {
 }
 
 const PreviewMarkDown: React.FC<Props> = ({ label, name, required = true }) => {
+  const md = useRef('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [content, setContent] = useState("");
 
@@ -25,11 +27,21 @@ const PreviewMarkDown: React.FC<Props> = ({ label, name, required = true }) => {
     setIsModalOpen(false);
   };
 
+  useEffect(() => {
+    setContent(md.current);
+  }, [md]);
+
+  const handleValueChange = (value) => {
+    md.current = value;
+    return {};
+  };
+
   return (
     <>
       <Form.Item
         label={label}
         name={name}
+        getValueProps={handleValueChange}
         rules={
           required
             ? [
