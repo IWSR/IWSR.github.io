@@ -16,16 +16,19 @@ const items: TabsProps["items"] = [
   {
     key: "1",
     label: "军队总规",
+    forceRender: true,
     children: <ArmyRules />,
   },
   {
     key: "2",
     label: "分队规则",
+    forceRender: true,
     children: <Detachments />,
   },
   {
     key: "3",
     label: "单位",
+    forceRender: true,
     children: <Units />,
   },
 ];
