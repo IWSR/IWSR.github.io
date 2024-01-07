@@ -7,18 +7,26 @@ interface Props extends React.PropsWithChildren {
 }
 
 const Mode: React.FC<Props> = ({ name }) => {
-  const [value, setValue] = useState(1);
+  const [isSingleMode, setIsSingleMode] = useState(true);
 
   const onChange = (e: RadioChangeEvent) => {
-    setValue(e.target.value);
+    setIsSingleMode(e.target.value);
   };
+
+  const handleValueChange = (value) => {
+    setIsSingleMode(value);
+    return {};
+  };
+
   return (
     <>
-      <Radio.Group onChange={onChange} value={value}>
-        <Radio value={1}>无模式</Radio>
-        <Radio value={2}>多模式</Radio>
-      </Radio.Group>
-      {value === 1 ? (
+      <Form.Item name={[name, "isSingleMode"]} getValueProps={handleValueChange}>
+        <Radio.Group onChange={onChange} value={isSingleMode}>
+          <Radio value={true}>无模式</Radio>
+          <Radio value={false}>多模式</Radio>
+        </Radio.Group>
+      </Form.Item>
+      {isSingleMode ? (
         // 无模式
         <>
           <Row gutter={24}>
@@ -171,7 +179,7 @@ const Mode: React.FC<Props> = ({ name }) => {
                     <div key={key}>
                       <div onClick={() => remove(index)}>删除</div>
                       <Row gutter={24}>
-                      <Col span={4}>
+                        <Col span={4}>
                           <Form.Item
                             label="模式名称"
                             name={[name, "modeName"]}
@@ -334,13 +342,13 @@ const Mode: React.FC<Props> = ({ name }) => {
                   );
                 })}
                 <Form.Item>
-                    <Button
-                        type="dashed"
-                        onClick={() => add()}
-                        style={{ width: "60%" }}
-                    >
-                        增加武器模式
-                    </Button>
+                  <Button
+                    type="dashed"
+                    onClick={() => add()}
+                    style={{ width: "60%" }}
+                  >
+                    增加武器模式
+                  </Button>
                 </Form.Item>
               </>
             );

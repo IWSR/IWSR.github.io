@@ -7,6 +7,7 @@ interface Props extends React.PropsWithChildren {
 }
 
 const Weapons: React.FC<Props> = ({ name }) => {
+
   return (
     <Form.List name={[name, "weapons"]}>
       {(fields, { add, remove }) => {
