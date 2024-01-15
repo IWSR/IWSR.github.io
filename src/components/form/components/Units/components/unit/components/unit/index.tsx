@@ -55,7 +55,6 @@ const Unit: React.FC<Props> = ({ name }) => {
                       </Form.Item>
                     </Col>
                   </Row>
-
                   <Row gutter={24}>
                     <Col span={8}>
                       <Form.Item

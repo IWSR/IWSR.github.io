@@ -58,6 +58,14 @@ const Unit: React.FC<Props> = ({ name, index }) => {
         </Col>
       </Row>
 
+      <Row gutter={24}>
+        <Col span={24}>
+          <Form.Item label="图片URL" name={[name, "imgURL"]}>
+            <Input />
+          </Form.Item>
+        </Col>
+      </Row>
+
       <PreviewMarkDown
         name={[name, "unitDescriptionEN"]}
         required={false}
@@ -102,7 +110,8 @@ const Unit: React.FC<Props> = ({ name, index }) => {
             () => ({
               validator(_, data) {
                 const value = data.join("&");
-                const regex = /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*$/;
+                const regex =
+                  /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*$/;
                 if (value && regex.test(value)) {
                   return Promise.resolve();
                 }
