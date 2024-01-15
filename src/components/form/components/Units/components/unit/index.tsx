@@ -144,16 +144,21 @@ const Unit: React.FC<Props> = ({ name, index }) => {
             () => ({
               validator(_, data) {
                 const value = data.join("&");
-                const regex =
-                  /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*$/;
-                if (value && regex.test(value)) {
-                  return Promise.resolve();
+                console.log(value, 'value');
+                if (value) {
+                  const regex =
+                    /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*$/;
+                  if (value && regex.test(value)) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(
+                    new Error(
+                      "只允许出现英文字符、中文字符并且单词间只允许使用&分割"
+                    )
+                  );
+                } else {
+                  Promise.resolve();
                 }
-                return Promise.reject(
-                  new Error(
-                    "只允许出现英文字符、中文字符并且单词间只允许使用&分割"
-                  )
-                );
               },
             }),
           ]}

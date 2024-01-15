@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Row, Col, Form, Input, Tabs, Button } from "antd";
+import { Row, Col, Form, Input, Tabs, Button, Select } from "antd";
 import { Upload, message } from "antd";
 import type { FormInstance, TabsProps } from "antd";
 
@@ -16,19 +16,19 @@ const items: TabsProps["items"] = [
   {
     key: "1",
     label: "军队总规",
-    // forceRender: true,
+    forceRender: true,
     children: <ArmyRules />,
   },
   {
     key: "2",
     label: "分队规则",
-    // forceRender: true,
+    forceRender: true,
     children: <Detachments />,
   },
   {
     key: "3",
     label: "单位",
-    // forceRender: true,
+    forceRender: true,
     children: <Units />,
   },
 ];
@@ -77,6 +77,10 @@ const FormDisabledDemo: React.FC = () => {
     reader.readAsText(file);
 
     return isJSON;
+  };
+
+  const handleChange = (value: string) => {
+    console.log(`selected ${value}`);
   };
 
   return (
@@ -142,6 +146,20 @@ const FormDisabledDemo: React.FC = () => {
               ]}
             >
               <Input />
+            </Form.Item>
+          </Col>
+          <Col span={8}>
+            <Form.Item label="允许联军" name="specialAgent">
+              <Select
+                mode="tags"
+                style={{ width: "100%" }}
+                placeholder="Tags Mode"
+                onChange={handleChange}
+                // options={[
+                //   { value: "帝国", label: "帝国" },
+                //   { value: "混沌", label: "混沌" },
+                // ]}
+              />
             </Form.Item>
           </Col>
         </Row>
