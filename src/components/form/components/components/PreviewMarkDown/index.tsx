@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Input, Form, Modal } from "antd";
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 // import { FormContext } from "../../../index";
 const { TextArea } = Input;
 
@@ -76,7 +77,7 @@ const PreviewMarkDown: React.FC<Props> = ({ label, name, required = true }) => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <Markdown>{content}</Markdown>
+        <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
       </Modal>
     </>
   );
