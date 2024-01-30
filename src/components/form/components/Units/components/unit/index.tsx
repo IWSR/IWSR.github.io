@@ -110,8 +110,7 @@ const Unit: React.FC<Props> = ({ name, index }) => {
             () => ({
               validator(_, data) {
                 const value = data.join("&");
-                const regex =
-                  /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*$/;
+                const regex = /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*(\(\))?/;
                 if (value && regex.test(value)) {
                   return Promise.resolve();
                 }
@@ -137,15 +136,12 @@ const Unit: React.FC<Props> = ({ name, index }) => {
           label="EN"
           name={[name, "KEYWORDS", "EN"]}
           rules={[
-            {
-              required: false,
-              message: "Input something!",
-            },
             () => ({
               validator(_, data) {
                 const value = data.join("&");
-                console.log(value, 'value');
+                console.log(value, 'value EN');
                 if (value) {
+                  console.log(value, 'value EN2');
                   const regex =
                     /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*$/;
                   if (value && regex.test(value)) {
@@ -157,7 +153,8 @@ const Unit: React.FC<Props> = ({ name, index }) => {
                     )
                   );
                 } else {
-                  Promise.resolve();
+                  console.log(value, 'value EN3');
+                  return Promise.resolve();
                 }
               },
             }),
