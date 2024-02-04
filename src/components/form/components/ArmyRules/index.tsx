@@ -21,7 +21,7 @@ const ArmyRules: React.FC = () => {
                     <Form.Item key={key}>
                       <h3>规则-{index} <span onClick={() => remove(index)}>删除</span></h3>
                       <Row gutter={24}>
-                        <Col span={8}>
+                        {/* <Col span={8}>
                           <Form.Item
                             label="labelEN"
                             name={[name, "labelEN"]}
@@ -33,7 +33,7 @@ const ArmyRules: React.FC = () => {
                           >
                             <Input />
                           </Form.Item>
-                        </Col>
+                        </Col> */}
                         <Col span={8}>
                           <Form.Item
                             label="labelCN"
@@ -55,11 +55,11 @@ const ArmyRules: React.FC = () => {
                         label="descriptionCN"
                       />
 
-                      <PreviewMarkDown
+                      {/* <PreviewMarkDown
                         name={[name, "descriptionEN"]}
                         label="descriptionEN"
                         required={false}
-                      />
+                      /> */}
                     </Form.Item>
                   );
                 })}

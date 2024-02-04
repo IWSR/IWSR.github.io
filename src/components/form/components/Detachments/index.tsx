@@ -17,7 +17,7 @@ const getItems = (name: number): TabsProps["items"] => [
                   <Form.Item key={key}>
                     <h2>CP-{index} <span onClick={() => remove(index)}>删除</span></h2>
                     <Row gutter={24}>
-                      <Col span={8}>
+                      {/* <Col span={8}>
                         <Form.Item
                           label="nameEN"
                           name={[name, "nameEN"]}
@@ -29,7 +29,7 @@ const getItems = (name: number): TabsProps["items"] => [
                         >
                           <Input />
                         </Form.Item>
-                      </Col>
+                      </Col> */}
                       <Col span={8}>
                         <Form.Item
                           label="nameCN"
@@ -60,7 +60,7 @@ const getItems = (name: number): TabsProps["items"] => [
                       </Col>
                     </Row>
                     <Row gutter={24}>
-                      <Col span={8}>
+                      {/* <Col span={8}>
                         <Form.Item
                           label="CP种类EN"
                           name={[name, "typeEN"]}
@@ -72,7 +72,7 @@ const getItems = (name: number): TabsProps["items"] => [
                         >
                           <Input />
                         </Form.Item>
-                      </Col>
+                      </Col> */}
                       <Col span={8}>
                         <Form.Item
                           label="CP种类CN"
@@ -91,7 +91,7 @@ const getItems = (name: number): TabsProps["items"] => [
                     
                     <PreviewMarkDown name={[name, "contentCN"]} label="contentCN" />
 
-                    <PreviewMarkDown required={false} name={[name, "contentEN"]} label="contentEN" />
+                    {/* <PreviewMarkDown required={false} name={[name, "contentEN"]} label="contentEN" /> */}
                   </Form.Item>
                 );
               })}
@@ -123,7 +123,7 @@ const getItems = (name: number): TabsProps["items"] => [
                   <Form.Item key={key}>
                     <h2>强化-{index} <span onClick={() => remove(index)}>删除</span></h2>
                     <Row gutter={24}>
-                      <Col span={8}>
+                      {/* <Col span={8}>
                         <Form.Item
                           label="EN"
                           name={[name, "EN"]}
@@ -135,7 +135,7 @@ const getItems = (name: number): TabsProps["items"] => [
                         >
                           <Input />
                         </Form.Item>
-                      </Col>
+                      </Col> */}
                       <Col span={8}>
                         <Form.Item
                           label="CN"
@@ -168,7 +168,7 @@ const getItems = (name: number): TabsProps["items"] => [
 
                     <PreviewMarkDown name={[name, "descriptionCN"]} label="descriptionCN" />
                     
-                    <PreviewMarkDown required={false} name={[name, "descriptionEN"]} label="descriptionEN" />
+                    {/* <PreviewMarkDown required={false} name={[name, "descriptionEN"]} label="descriptionEN" /> */}
                     
                   </Form.Item>
                 );
@@ -203,7 +203,7 @@ const Detachments: React.FC = () => {
                   <Form.Item key={key}>
                     <h2>分队-{index} <span onClick={() => remove(index)}>删除</span></h2>
                     <Row gutter={24}>
-                      <Col span={8}>
+                      {/* <Col span={8}>
                         <Form.Item
                           label="分队名称EN"
                           name={[name, "name"]}
@@ -215,7 +215,7 @@ const Detachments: React.FC = () => {
                         >
                           <Input />
                         </Form.Item>
-                      </Col>
+                      </Col> */}
                       <Col span={8}>
                         <Form.Item
                           label="分队名称Cn"
@@ -232,7 +232,7 @@ const Detachments: React.FC = () => {
                       </Col>
                     </Row>
                     <Row gutter={24}>
-                      <Col span={8}>
+                      {/* <Col span={8}>
                         <Form.Item
                           label="分队能力名称EN"
                           name={[name, "abilityNameEN"]}
@@ -244,7 +244,7 @@ const Detachments: React.FC = () => {
                         >
                           <Input />
                         </Form.Item>
-                      </Col>
+                      </Col> */}
                       <Col span={8}>
                         <Form.Item
                           label="分队能力名称CN"
@@ -263,7 +263,7 @@ const Detachments: React.FC = () => {
                     
                     <PreviewMarkDown name={[name, "abilityDescriptionCN"]} label="能力描述CN" />
                     
-                    <PreviewMarkDown required={false} name={[name, "abilityDescriptionEN"]} label="能力描述EN" />
+                    {/* <PreviewMarkDown required={false} name={[name, "abilityDescriptionEN"]} label="能力描述EN" /> */}
                     
                     <Tabs
                       defaultActiveKey="1"

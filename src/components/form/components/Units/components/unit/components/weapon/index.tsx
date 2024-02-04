@@ -19,14 +19,14 @@ const Weapons: React.FC<Props> = ({ name }) => {
                   <h3>武器面板——武器{index}</h3>
                   <span onClick={() => remove(index)}>删除</span>
                   <Row gutter={24}>
-                    <Col span={8}>
+                    {/* <Col span={8}>
                       <Form.Item
                         label="武器名称EN"
                         name={[name, "EN"]}
                       >
                         <Input />
                       </Form.Item>
-                    </Col>
+                    </Col> */}
                     <Col span={8}>
                       <Form.Item
                         label="武器名称CN"

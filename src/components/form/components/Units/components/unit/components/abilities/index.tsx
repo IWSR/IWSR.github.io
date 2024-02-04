@@ -18,14 +18,14 @@ const CORE: React.FC<Props> = ({ name }) => {
                 <>
                   <span onClick={() => remove(index)}>删除</span>
                   <Row gutter={24} key={key}>
-                    <Col span={8}>
+                    {/* <Col span={8}>
                       <Form.Item
                         label="名称EN"
                         name={[name, "EN"]}
                       >
                         <Input />
                       </Form.Item>
-                    </Col>
+                    </Col> */}
                     <Col span={8}>
                       <Form.Item
                         label="名称CN"

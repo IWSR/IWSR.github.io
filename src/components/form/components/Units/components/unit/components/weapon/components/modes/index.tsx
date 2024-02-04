@@ -138,14 +138,14 @@ const Mode: React.FC<Props> = ({ name }) => {
                               <Input />
                             </Form.Item>
                           </Col>
-                          <Col span={8}>
+                          {/* <Col span={8}>
                             <Form.Item
                               label="武器能力名称EN"
                               name={[name, "EN"]}
                             >
                               <Input />
                             </Form.Item>
-                          </Col>
+                          </Col> */}
                           <Col span={8}>
                             <Form.Item label="value" name={[name, "value"]}>
                               <Input />
@@ -305,14 +305,14 @@ const Mode: React.FC<Props> = ({ name }) => {
                                           <Input />
                                         </Form.Item>
                                       </Col>
-                                      <Col span={8}>
+                                      {/* <Col span={8}>
                                         <Form.Item
                                           label="武器能力名称EN"
                                           name={[name, "EN"]}
                                         >
                                           <Input />
                                         </Form.Item>
-                                      </Col>
+                                      </Col> */}
                                       <Col span={8}>
                                         <Form.Item
                                           label="value"

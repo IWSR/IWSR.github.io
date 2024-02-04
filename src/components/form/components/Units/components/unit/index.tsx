@@ -15,7 +15,7 @@ const Unit: React.FC<Props> = ({ name, index }) => {
       <h2>单位-{index}</h2>
 
       <Row gutter={24}>
-        <Col span={8}>
+        {/* <Col span={8}>
           <Form.Item
             label="单位名称EN"
             name={[name, "EN"]}
@@ -27,7 +27,7 @@ const Unit: React.FC<Props> = ({ name, index }) => {
           >
             <Input />
           </Form.Item>
-        </Col>
+        </Col> */}
         <Col span={8}>
           <Form.Item
             label="单位名称CN"
@@ -66,11 +66,11 @@ const Unit: React.FC<Props> = ({ name, index }) => {
         </Col>
       </Row>
 
-      <PreviewMarkDown
+      {/* <PreviewMarkDown
         name={[name, "unitDescriptionEN"]}
         required={false}
         label="单位构成描述EN"
-      />
+      /> */}
       <PreviewMarkDown
         name={[name, "unitDescriptionCN"]}
         label="单位构成描述CN"
@@ -91,11 +91,11 @@ const Unit: React.FC<Props> = ({ name, index }) => {
         label="能力描述CN"
       />
 
-      <PreviewMarkDown
+      {/* <PreviewMarkDown
         required={false}
         name={[name, "ABILITIES", "en"]}
         label="能力描述EN"
-      />
+      /> */}
 
       <Form.Item name={[name, "KEYWORDS"]}>
         <h3>关键词</h3>
@@ -110,52 +110,17 @@ const Unit: React.FC<Props> = ({ name, index }) => {
             () => ({
               validator(_, data) {
                 const value = data.join("&");
-                const regex = /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*(\(\))?/;
+                console.log(data, 'value');
+                const regex = /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*(\([a-zA-Z0-9\u4e00-\u9fa5]+\))?$/;
+                console.log(regex.test(value));
                 if (value && regex.test(value)) {
                   return Promise.resolve();
                 }
                 return Promise.reject(
                   new Error(
-                    "只允许出现英文字符、中文字符并且单词间只允许使用&分割"
+                    "只允许出现英文字符、中文字符并且单词间只允许使用&分割、可使用英文()对关键词进行补充"
                   )
                 );
-              },
-            }),
-          ]}
-          valuePropName="value"
-          getValueFromEvent={(e) => {
-            return e.target.value.split("&");
-          }}
-          getValueProps={(val) => {
-            return { value: val ? val.join("&") : "" };
-          }}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label="EN"
-          name={[name, "KEYWORDS", "EN"]}
-          rules={[
-            () => ({
-              validator(_, data) {
-                const value = data.join("&");
-                console.log(value, 'value EN');
-                if (value) {
-                  console.log(value, 'value EN2');
-                  const regex =
-                    /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*$/;
-                  if (value && regex.test(value)) {
-                    return Promise.resolve();
-                  }
-                  return Promise.reject(
-                    new Error(
-                      "只允许出现英文字符、中文字符并且单词间只允许使用&分割"
-                    )
-                  );
-                } else {
-                  console.log(value, 'value EN3');
-                  return Promise.resolve();
-                }
               },
             }),
           ]}

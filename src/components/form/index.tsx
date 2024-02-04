@@ -99,8 +99,8 @@ const FormDisabledDemo: React.FC = () => {
       <Form
         layout="vertical"
         form={form}
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
+        // labelCol={{ span: 8 }}
+        // wrapperCol={{ span: 16 }}
         style={{ width: "100%" }}
         onFinish={onFinish}
       >

@@ -18,14 +18,14 @@ const Unit: React.FC<Props> = ({ name }) => {
                   <h3>构成该单位的模型——模型{index}</h3>
                   <span onClick={() => remove(index)}>删除</span>
                   <Row gutter={24}>
-                    <Col span={8}>
+                    {/* <Col span={8}>
                       <Form.Item
                         label="模型名称EN"
                         name={[name, "EN"]}
                       >
                         <Input />
                       </Form.Item>
-                    </Col>
+                    </Col> */}
                     <Col span={8}>
                       <Form.Item
                         label="模型名称CN"
@@ -182,14 +182,14 @@ const Unit: React.FC<Props> = ({ name }) => {
                               <>
                                 <span onClick={() => remove(index)}>删除</span>
                                 <Row gutter={24} key={key}>
-                                  <Col span={8}>
+                                  {/* <Col span={8}>
                                     <Form.Item
                                       label="武器名称EN"
                                       name={[name, "EN"]}
                                     >
                                       <Input />
                                     </Form.Item>
-                                  </Col>
+                                  </Col> */}
                                   <Col span={8}>
                                     <Form.Item
                                       label="武器名称CN"
@@ -242,11 +242,11 @@ const Unit: React.FC<Props> = ({ name }) => {
                     required={false}
                   />
 
-                  <PreviewMarkDown
+                  {/* <PreviewMarkDown
                     label="装备描述/替换 EN"
                     required={false}
                     name={[name, "armoryDescEN"]}
-                  />
+                  /> */}
                 </Form.Item>
               );
             })}
