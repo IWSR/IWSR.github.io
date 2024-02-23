@@ -7,6 +7,7 @@ import type { FormInstance, TabsProps } from "antd";
 import ArmyRules from "./components/ArmyRules/index";
 import Detachments from "./components/Detachments/index";
 import Units from "./components/Units/index";
+import PreviewMarkDown from "./components/components/PreviewMarkDown/index";
 
 const onChange = (key: string) => {
   console.log(key);
@@ -163,6 +164,23 @@ const FormDisabledDemo: React.FC = () => {
             </Form.Item>
           </Col>
         </Row>
+        <Row>
+        <Col span={8}>
+          <Form.Item label="允许联军" name="specialAgent">
+            <Select
+              mode="tags"
+              style={{ width: "100%" }}
+              placeholder="Tags Mode"
+              onChange={handleChange}
+              // options={[
+              //   { value: "帝国", label: "帝国" },
+              //   { value: "混沌", label: "混沌" },
+              // ]}
+            />
+          </Form.Item>
+        </Col>
+        </Row>
+        <PreviewMarkDown name={['supplementaryInstructions']} label="更新说明&感谢列表"/>
         <FormContext.Provider value={form}>
           <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
         </FormContext.Provider>
