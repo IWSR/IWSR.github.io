@@ -164,7 +164,7 @@ const FormDisabledDemo: React.FC = () => {
             </Form.Item>
           </Col>
         </Row>
-        <PreviewMarkDown name={['supplementaryInstructions']} label="更新说明&感谢列表"/>
+        <PreviewMarkDown name={['supplementaryInstructions']} label="更新说明 & 感谢列表"/>
         <FormContext.Provider value={form}>
           <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
         </FormContext.Provider>
