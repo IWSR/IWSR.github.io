@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Input, Form, Modal } from "antd";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -7,12 +7,11 @@ const { TextArea } = Input;
 
 interface Props extends React.PropsWithChildren {
   label: string;
-  name: (string | number)[];
+  name: (string | number)[] | string;
   required?: boolean;
 }
 
 const PreviewMarkDown: React.FC<Props> = ({ label, name, required = true }) => {
-  const md = useRef('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [content, setContent] = useState("");
 
@@ -28,12 +27,10 @@ const PreviewMarkDown: React.FC<Props> = ({ label, name, required = true }) => {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    setContent(md.current);
-  }, [md]);
-
   const handleValueChange = (value) => {
-    md.current = value;
+    console.log(value, 'value');
+    // md.current = value;
+    setContent(value);
     return {};
   };
 
