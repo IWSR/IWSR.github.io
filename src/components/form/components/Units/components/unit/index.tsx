@@ -111,7 +111,7 @@ const Unit: React.FC<Props> = ({ name, index }) => {
               validator(_, data) {
                 const value = data.join("&");
                 console.log(data, 'value');
-                const regex = /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*(\([a-zA-Z0-9\u4e00-\u9fa5]+\))?$/;
+                const regex = /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*([-&][a-zA-Z0-9\u4e00-\u9fa5]+\([a-zA-Z0-9\u4e00-\u9fa5]+\))*$/;
                 console.log(regex.test(value));
                 if (value && regex.test(value)) {
                   return Promise.resolve();
