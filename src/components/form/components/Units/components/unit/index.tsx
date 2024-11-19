@@ -1,8 +1,9 @@
-import React from "react";
-import { Input, Form, Row, Col } from "antd";
+import React, { useContext } from "react";
+import { Input, Form, Row, Col, Select, Radio } from "antd";
 import ComposeUnit from "./components/unit";
 import Weapons from "./components/weapon";
 import PreviewMarkDown from "../../../components/PreviewMarkDown";
+import { FormContext } from "../../../../../form";
 
 interface Props extends React.PropsWithChildren {
   name: number;
@@ -10,24 +11,15 @@ interface Props extends React.PropsWithChildren {
 }
 
 const Unit: React.FC<Props> = ({ name, index }) => {
+  const form = useContext(FormContext);
+  const isSM = Form.useWatch("isSM", form);
+  const isNeverRebel = Form.useWatch("isNeverRebel", form);
+
   return (
     <Form.Item>
       <h2>单位-{index}</h2>
 
       <Row gutter={24}>
-        {/* <Col span={8}>
-          <Form.Item
-            label="单位名称EN"
-            name={[name, "EN"]}
-            rules={[
-              {
-                message: "Input something!",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-        </Col> */}
         <Col span={8}>
           <Form.Item
             label="单位名称CN"
@@ -56,7 +48,44 @@ const Unit: React.FC<Props> = ({ name, index }) => {
             <Input />
           </Form.Item>
         </Col>
+
+        {isSM ? (
+          <Col span={8}>
+            <Form.Item label="所属战团" name={[name, "legion"]}>
+              <Select
+                mode="tags"
+                style={{ width: "100%" }}
+                placeholder="Tags Mode"
+                options={[
+                  { value: "星际战士", label: "星际战士" },
+                  { value: "黑暗天使", label: "黑暗天使" },
+                  { value: "白色伤疤", label: "白色伤疤" },
+                  { value: "太空野狼", label: "太空野狼" },
+                  { value: "帝国之拳", label: "帝国之拳" },
+                  { value: "圣血天使", label: "圣血天使" },
+                  { value: "钢铁之手", label: "钢铁之手" },
+                  { value: "极限战士", label: "极限战士" },
+                  { value: "火蜥蜴", label: "火蜥蜴" },
+                  { value: "暗鸦守卫", label: "暗鸦守卫" },
+                ]}
+              />
+            </Form.Item>
+          </Col>
+        ) : null}
       </Row>
+
+      {!isNeverRebel ? (
+        <Row gutter={24}>
+          <Col span={8}>
+            <Form.Item label="是否可以被感染" name={[name, "canBeInfected"]}>
+              <Radio.Group defaultValue={true}>
+                <Radio value={true}>是</Radio>
+                <Radio value={false}>否</Radio>
+              </Radio.Group>
+            </Form.Item>
+          </Col>
+        </Row>
+      ) : null}
 
       <Row gutter={24}>
         <Col span={24}>
@@ -110,8 +139,9 @@ const Unit: React.FC<Props> = ({ name, index }) => {
             () => ({
               validator(_, data) {
                 const value = data.join("&");
-                console.log(data, 'value');
-                const regex = /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*([-&][a-zA-Z0-9\u4e00-\u9fa5]+\([a-zA-Z0-9\u4e00-\u9fa5]+\))*$/;
+                console.log(data, "value");
+                const regex =
+                  /^[a-zA-Z0-9\u4e00-\u9fa5]+([-&][a-zA-Z0-9\u4e00-\u9fa5]+)*([-&][a-zA-Z0-9\u4e00-\u9fa5]+\([a-zA-Z0-9\u4e00-\u9fa5]+\))*$/;
                 console.log(regex.test(value));
                 if (value && regex.test(value)) {
                   return Promise.resolve();

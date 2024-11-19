@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Row, Col, Form, Input, Tabs, Button, Select } from "antd";
+import { Row, Col, Form, Input, Tabs, Button, Select, Radio } from "antd";
 import { Upload, message } from "antd";
-import type { FormInstance, TabsProps } from "antd";
+import type { FormInstance, TabsProps, RadioChangeEvent } from "antd";
 
 import ArmyRules from "./components/ArmyRules/index";
 import Detachments from "./components/Detachments/index";
 import Units from "./components/Units/index";
 import PreviewMarkDown from "./components/components/PreviewMarkDown/index";
-
-const onChange = (key: string) => {
-  console.log(key);
-};
 
 const items: TabsProps["items"] = [
   {
@@ -99,9 +95,7 @@ const FormDisabledDemo: React.FC = () => {
       </Upload>
       <Form
         layout="vertical"
-        form={form}
-        // labelCol={{ span: 8 }}
-        // wrapperCol={{ span: 16 }}
+        form={form}        
         style={{ width: "100%" }}
         onFinish={onFinish}
       >
@@ -156,17 +150,31 @@ const FormDisabledDemo: React.FC = () => {
                 style={{ width: "100%" }}
                 placeholder="Tags Mode"
                 onChange={handleChange}
-                // options={[
-                //   { value: "帝国", label: "帝国" },
-                //   { value: "混沌", label: "混沌" },
-                // ]}
               />
+            </Form.Item>
+          </Col>
+        </Row>
+        <Row gutter={24}>
+          <Col span={8}>
+            <Form.Item label="是否为星际战士" name="isSM">
+              <Radio.Group defaultValue={false}>
+                <Radio value={true}>是</Radio>
+                <Radio value={false}>否</Radio>
+              </Radio.Group>
+            </Form.Item>
+          </Col>
+          <Col span={8}>
+            <Form.Item label="是否绝对忠诚" name="isNeverRebel">
+              <Radio.Group defaultValue={true}>
+                <Radio value={true}>是</Radio>
+                <Radio value={false}>否</Radio>
+              </Radio.Group>
             </Form.Item>
           </Col>
         </Row>
         <PreviewMarkDown name="supplementaryInstructions" label="更新说明 & 感谢列表"/>
         <FormContext.Provider value={form}>
-          <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+          <Tabs defaultActiveKey="1" items={items} />
         </FormContext.Provider>
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType="submit">
