@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Row, Col, Form, Input, Tabs, Button, Select, Radio } from "antd";
 import { Upload, message } from "antd";
@@ -47,6 +47,13 @@ const FormDisabledDemo: React.FC = () => {
   const [form] = Form.useForm();
   const [, setFileData] = useState(null);
 
+  useEffect(() => {
+    form.setFieldsValue({
+      isSM: false,
+      isNeverRebel: true
+    });
+  });
+
   const beforeUpload = (file) => {
     // 检查文件类型是否为JSON
     console.log(file, "file");
@@ -74,10 +81,6 @@ const FormDisabledDemo: React.FC = () => {
     reader.readAsText(file);
 
     return isJSON;
-  };
-
-  const handleChange = (value: string) => {
-    console.log(`selected ${value}`);
   };
 
   return (
@@ -149,7 +152,6 @@ const FormDisabledDemo: React.FC = () => {
                 mode="tags"
                 style={{ width: "100%" }}
                 placeholder="Tags Mode"
-                onChange={handleChange}
               />
             </Form.Item>
           </Col>

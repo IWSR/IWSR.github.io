@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Input, Form, Row, Col, Select, Radio } from "antd";
 import ComposeUnit from "./components/unit";
 import Weapons from "./components/weapon";
@@ -14,6 +14,10 @@ const Unit: React.FC<Props> = ({ name, index }) => {
   const form = useContext(FormContext);
   const isSM = Form.useWatch("isSM", form);
   const isNeverRebel = Form.useWatch("isNeverRebel", form);
+  
+  useEffect(() => {
+    console.log(isSM, isNeverRebel, 'watch');
+  }, [isSM, isNeverRebel]);
 
   return (
     <Form.Item>
@@ -78,7 +82,7 @@ const Unit: React.FC<Props> = ({ name, index }) => {
         <Row gutter={24}>
           <Col span={8}>
             <Form.Item label="是否可以被感染" name={[name, "canBeInfected"]}>
-              <Radio.Group defaultValue={true}>
+              <Radio.Group defaultValue={false}>
                 <Radio value={true}>是</Radio>
                 <Radio value={false}>否</Radio>
               </Radio.Group>
