@@ -53,9 +53,9 @@ const Unit: React.FC<Props> = ({ name, index }) => {
           <Col span={8}>
             <Form.Item label="所属战团" name={[name, "legion"]}>
               <Select
-                mode="tags"
                 style={{ width: "100%" }}
                 placeholder="Tags Mode"
+                defaultValue="星际战士"
                 options={[
                   { value: "星际战士", label: "星际战士" },
                   { value: "黑暗天使", label: "黑暗天使" },

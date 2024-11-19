@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { Row, Col, Form, Input, Tabs, Button, Select, Radio } from "antd";
 import { Upload, message } from "antd";
-import type { FormInstance, TabsProps, RadioChangeEvent } from "antd";
+import type { FormInstance, TabsProps } from "antd";
 
 import ArmyRules from "./components/ArmyRules/index";
 import Detachments from "./components/Detachments/index";
@@ -156,7 +156,7 @@ const FormDisabledDemo: React.FC = () => {
         </Row>
         <Row gutter={24}>
           <Col span={8}>
-            <Form.Item label="是否为星际战士" name="isSM">
+            <Form.Item label="是否为忠诚方星际战士" name="isSM" tooltip="只对忠诚的星际战士生效，CSM作为独立种族不需要考虑该项">
               <Radio.Group defaultValue={false}>
                 <Radio value={true}>是</Radio>
                 <Radio value={false}>否</Radio>
@@ -164,7 +164,7 @@ const FormDisabledDemo: React.FC = () => {
             </Form.Item>
           </Col>
           <Col span={8}>
-            <Form.Item label="是否绝对忠诚" name="isNeverRebel">
+            <Form.Item label="是否绝对忠诚" name="isNeverRebel" tooltip="星界军是可能叛变成鸡贼的，该项只有星界军需要为否">
               <Radio.Group defaultValue={true}>
                 <Radio value={true}>是</Radio>
                 <Radio value={false}>否</Radio>
