@@ -158,7 +158,7 @@ const FormDisabledDemo: React.FC = () => {
         </Row>
         <Row gutter={24}>
           <Col span={8}>
-            <Form.Item label="是否为忠诚方星际战士" name="isSM" tooltip="只对忠诚的星际战士生效，CSM作为独立种族不需要考虑该项">
+            <Form.Item label="是否为忠诚方星际战士" name="isSM" tooltip="只对忠诚的星际战士生效，CSM、灰骑士、DW作为独立种族不需要考虑该项">
               <Radio.Group defaultValue={false}>
                 <Radio value={true}>是</Radio>
                 <Radio value={false}>否</Radio>
