@@ -158,16 +158,8 @@ const FormDisabledDemo: React.FC = () => {
         </Row>
         <Row gutter={24}>
           <Col span={8}>
-            <Form.Item label="是否为忠诚方星际战士" name="isSM" tooltip="只对忠诚的星际战士生效，CSM、灰骑士、DW作为独立种族不需要考虑该项">
+            <Form.Item label="是否与星际战士codex相关" name="isSM" tooltip="可以使用星际战士codex的战团">
               <Radio.Group defaultValue={false}>
-                <Radio value={true}>是</Radio>
-                <Radio value={false}>否</Radio>
-              </Radio.Group>
-            </Form.Item>
-          </Col>
-          <Col span={8}>
-            <Form.Item label="是否绝对忠诚" name="isNeverRebel" tooltip="星界军是可能叛变成鸡贼的，该项只有星界军需要为否">
-              <Radio.Group defaultValue={true}>
                 <Radio value={true}>是</Radio>
                 <Radio value={false}>否</Radio>
               </Radio.Group>

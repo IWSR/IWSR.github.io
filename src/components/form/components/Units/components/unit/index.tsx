@@ -13,11 +13,11 @@ interface Props extends React.PropsWithChildren {
 const Unit: React.FC<Props> = ({ name, index }) => {
   const form = useContext(FormContext);
   const isSM = Form.useWatch("isSM", form);
-  const isNeverRebel = Form.useWatch("isNeverRebel", form);
+  // const isNeverRebel = Form.useWatch("isNeverRebel", form);
   
-  useEffect(() => {
-    console.log(isSM, isNeverRebel, 'watch');
-  }, [isSM, isNeverRebel]);
+  // useEffect(() => {
+  //   console.log(isSM, isNeverRebel, 'watch');
+  // }, [isSM, isNeverRebel]);
 
   return (
     <Form.Item>
@@ -78,18 +78,16 @@ const Unit: React.FC<Props> = ({ name, index }) => {
         ) : null}
       </Row>
 
-      {!isNeverRebel ? (
-        <Row gutter={24}>
-          <Col span={8}>
-            <Form.Item label="是否可以被感染" name={[name, "canBeInfected"]}>
-              <Radio.Group defaultValue={false}>
-                <Radio value={true}>是</Radio>
-                <Radio value={false}>否</Radio>
-              </Radio.Group>
-            </Form.Item>
-          </Col>
-        </Row>
-      ) : null}
+      <Row gutter={24}>
+        <Col span={8}>
+          <Form.Item label="是否允许被雇佣" name="isAvailableForHire" tooltip="IG到鸡贼，机械教到骑士这类的">
+            <Radio.Group defaultValue={false}>
+              <Radio value={true}>是</Radio>
+              <Radio value={false}>否</Radio>
+            </Radio.Group>
+          </Form.Item>
+        </Col>
+      </Row>
 
       <Row gutter={24}>
         <Col span={24}>
