@@ -80,7 +80,7 @@ const Unit: React.FC<Props> = ({ name, index }) => {
 
       <Row gutter={24}>
         <Col span={8}>
-          <Form.Item label="是否允许被雇佣" name="isAvailableForHire" tooltip="IG到鸡贼，机械教到骑士这类的">
+          <Form.Item label="是否允许被雇佣" name={[name, "isAvailableForHire"]} tooltip="IG到鸡贼，机械教到骑士这类的">
             <Radio.Group defaultValue={false}>
               <Radio value={true}>是</Radio>
               <Radio value={false}>否</Radio>
