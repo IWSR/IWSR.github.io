@@ -167,6 +167,7 @@ const FormDisabledDemo: React.FC = () => {
           </Col>
         </Row>
         <PreviewMarkDown name="supplementaryInstructions" label="更新说明 & 感谢列表"/>
+        <PreviewMarkDown name="faq" label="FAQ"/>
         <FormContext.Provider value={form}>
           <Tabs defaultActiveKey="1" items={items} />
         </FormContext.Provider>
