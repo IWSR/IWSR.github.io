@@ -47,13 +47,6 @@ const FormDisabledDemo: React.FC = () => {
   const [form] = Form.useForm();
   const [, setFileData] = useState(null);
 
-  useEffect(() => {
-    form.setFieldsValue({
-      isSM: false,
-      isNeverRebel: true
-    });
-  });
-
   const beforeUpload = (file) => {
     // 检查文件类型是否为JSON
     console.log(file, "file");
@@ -101,6 +94,9 @@ const FormDisabledDemo: React.FC = () => {
         form={form}        
         style={{ width: "100%" }}
         onFinish={onFinish}
+        initialValues={{
+          isSM: false
+        }}
       >
         <Row gutter={24}>
           <Col span={8}>
@@ -158,8 +154,12 @@ const FormDisabledDemo: React.FC = () => {
         </Row>
         <Row gutter={24}>
           <Col span={8}>
-            <Form.Item label="是否与星际战士codex相关" name="isSM" tooltip="可以使用星际战士codex的战团">
-              <Radio.Group defaultValue={false}>
+            <Form.Item label="是否与星际战士codex相关" name="isSM" tooltip="可以使用星际战士codex的战团" rules={[
+            {
+              required: true,
+              message: "Input something!"
+            }]}>
+              <Radio.Group>
                 <Radio value={true}>是</Radio>
                 <Radio value={false}>否</Radio>
               </Radio.Group>

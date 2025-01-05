@@ -55,11 +55,14 @@ const Unit: React.FC<Props> = ({ name, index }) => {
 
         {isSM ? (
           <Col span={8}>
-            <Form.Item label="所属战团" name={[name, "legion"]}>
+            <Form.Item label="所属战团" initialValue="星际战士" name={[name, "legion"]} rules={[
+            {
+              required: true,
+              message: "Input something!"
+            }]}>
               <Select
                 style={{ width: "100%" }}
                 placeholder="Tags Mode"
-                defaultValue="星际战士"
                 options={[
                   { value: "星际战士", label: "星际战士" },
                   { value: "黑暗天使", label: "黑暗天使" },
