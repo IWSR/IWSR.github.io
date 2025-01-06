@@ -91,6 +91,34 @@ const Unit: React.FC<Props> = ({ name, index }) => {
             </Radio.Group>
           </Form.Item>
         </Col>
+        {isSM ? (
+          <Col span={8}>
+            <Form.Item label="排斥的战团" name={[name, "rejectedLegion"]} rules={[
+            {
+              required: true,
+              message: "Input something!"
+            }]}>
+              <Select
+                style={{ width: "100%" }}
+                placeholder="Tags Mode"
+                mode="multiple"
+                options={[
+                  { value: "星际战士", label: "星际战士" },
+                  { value: "黑暗天使", label: "黑暗天使" },
+                  { value: "白色伤疤", label: "白色伤疤" },
+                  { value: "太空野狼", label: "太空野狼" },
+                  { value: "帝国之拳", label: "帝国之拳" },
+                  { value: "圣血天使", label: "圣血天使" },
+                  { value: "钢铁之手", label: "钢铁之手" },
+                  { value: "极限战士", label: "极限战士" },
+                  { value: "火蜥蜴", label: "火蜥蜴" },
+                  { value: "暗鸦守卫", label: "暗鸦守卫" },
+                  { value: "死亡守望", label: "死亡守望" }
+                ]}
+              />
+            </Form.Item>
+          </Col>
+        ) : null}
       </Row>
 
       <Row gutter={24}>
