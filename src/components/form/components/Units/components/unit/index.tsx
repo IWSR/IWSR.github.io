@@ -74,6 +74,7 @@ const Unit: React.FC<Props> = ({ name, index }) => {
                   { value: "极限战士", label: "极限战士" },
                   { value: "火蜥蜴", label: "火蜥蜴" },
                   { value: "暗鸦守卫", label: "暗鸦守卫" },
+                  { value: "死亡守望", label: "死亡守望" }
                 ]}
               />
             </Form.Item>
