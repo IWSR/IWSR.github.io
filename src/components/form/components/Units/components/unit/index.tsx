@@ -93,11 +93,7 @@ const Unit: React.FC<Props> = ({ name, index }) => {
         </Col>
         {isSM ? (
           <Col span={8}>
-            <Form.Item label="排斥的战团" name={[name, "rejectedLegion"]} rules={[
-            {
-              required: true,
-              message: "Input something!"
-            }]}>
+            <Form.Item label="排斥的战团" name={[name, "rejectedLegion"]}>
               <Select
                 style={{ width: "100%" }}
                 placeholder="Tags Mode"
